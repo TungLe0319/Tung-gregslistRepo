@@ -33,11 +33,13 @@
             <h6 class="mb-0 selectable p-2 rounded" onclick="app.jobsController.showJobs()">Jobs</h6>
           </div>
           <div>
-            <h6 class="mb-0 selectable p-2 rounded">Houses</h6>
+            <h6 class="mb-0 selectable p-2 rounded" onclick="app.housesController.showHouses()">Houses</h6>
           </div>
         </div>
         <div>
           <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#banana">🚗 Add Car</button>
+
+          <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#banana" onclick="app.housesController.showForm()">🏠 Add House</button>
         </div>
       </div>
     </nav>
@@ -56,7 +58,7 @@
       <h5 class="offcanvas-title" id="bananaLabel">Offcanvas</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div id="listingform" class="offcanvas-body">
       <!-- TODO build forms YIKES put them here DYNAMICALLY YIKES !!!!! -->
       <form onsubmit="app.carsController.addCar()">
 
@@ -94,10 +96,12 @@
           <button class="btn" type="reset">Cancel</button>
           <button class="btn btn-primary" type="submit">Submit</button>
         </div>
+<!-- ----------------------------------------------------- -->
 
+<!-- --------------------------------------------------------- -->
 
       </form>
-      <!-- <button onclick="app.carsController.test()">This is only a Test!!!</button> -->
+     
     </div>
   </div>
 
