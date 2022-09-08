@@ -2,10 +2,7 @@ import { generateId } from '../Utils/generateId.js'
 
 
 export class Job{
-  /**
-   * The data needed to make a car
-   * @param {{make: string, model: string, year: number, price: number, description: string, imgUrl: string, id?:string}} data 
-   */
+ 
   constructor(imgUrl,company,jobtitle,hours,rate,description) {
  this.imgUrl=imgUrl
     this.company=company
@@ -19,7 +16,7 @@ export class Job{
 
 
   get JobTemplate() {
-    return /*html*/`
+    return `
     <div class="col-md-4 col-lg-3 mb-3">
       <div class="card">
         <img src="${this.imgUrl}" alt="${this.company}${this.jobtitle}" class="img-fluid">

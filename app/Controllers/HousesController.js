@@ -13,11 +13,11 @@ function drawHouses() {
 function drawHouseForm(){
   let template = ''
 
- template += `
+ template += /*html*/`
  <form onsubmit="app.housesController.addHouse()">
   
  <div class="form-floating mb-3">
-   <input type="number" class="form-control" name="bedrooms" required minlength="3" maxlength="20">
+   <input type="number" class="form-control" name="bedrooms" required minlength="3">
    <label for="bedrooms">Bedrooms</label>
  </div>
 
@@ -27,17 +27,17 @@ function drawHouseForm(){
  </div>
 
  <div class="form-floating mb-3">
-   <input type="number" class="form-control" name="levels" required min="1886" max="9999">
+   <input type="number" class="form-control" name="levels" required min="1">
    <label for="levels">Levels</label>
  </div>
 
  <div class="form-floating mb-3">
-   <input type="url" class="form-control" name="imgUrl" required >
+   <input type="url" class="form-control" name="imgUrl"  >
    <label for="imgUrl">Picture!</label>
  </div>
 
  <div class="form-floating mb-3">
-   <input type="number" class="form-control" name="year" required min="1886" max="9999">
+   <input type="number" class="form-control" name="year" required  max="9999">
    <label for="year">Year</label>
  </div>
 
@@ -69,6 +69,7 @@ export class HousesController {
 
   showHouses() {
     drawHouses();
+    console.log(appState.houses);
   }
   showForm(){
     drawHouseForm()
@@ -80,7 +81,7 @@ export class HousesController {
       const form = window.event.target
       let formData = getFormData(form)
  housesService.addHouse(formData)
-
+console.log('hi from house controller', formData);
 form.reset()
     } catch (error) {
       console.error('addHouse',error)
