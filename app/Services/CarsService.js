@@ -2,7 +2,7 @@ import { appState } from "../AppState.js";
 import { Car } from "../Models/Car.js";
 import { saveState } from "../Utils/Store.js";
 
- export class CarsService {
+ class CarsService {
   addCar(formData) {
     
     let car = new Car(formData)

@@ -2,7 +2,7 @@ import { appState } from '../AppState.js';
 import { Job } from '../Models/Job.js';
 import { saveState } from "../Utils/Store.js";
 
-export class JobsService {
+class JobsService {
   addJob(formData) {
   let job = new Job(formData)
   appState.jobs = [job,...appState.jobs]
