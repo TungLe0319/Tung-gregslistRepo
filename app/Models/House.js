@@ -40,51 +40,51 @@ export class House{
     
 
     get HouseFormTemplate(){
-      return `
-       <form onsubmit="app.carsController.addCar()">
-
+      return  /*html*/`
+      <form onsubmit="app.housesController.addHouse()">
+       
       <div class="form-floating mb-3">
-        <input type="number" class="form-control" name="bedrooms" required minlength="3" maxlength="20">
-        <label for="make">Bedrooms</label>
+        <input type="number" class="form-control" name="bedrooms" required minlength="3">
+        <label for="bedrooms">Bedrooms</label>
       </div>
-
+     
       <div class="form-floating mb-3">
         <input type="number" class="form-control" name="bathrooms" >
-        <label for="model">Model</label>
+        <label for="bathrooms">Bathrooms</label>
       </div>
-
+     
       <div class="form-floating mb-3">
-        <input type="number" class="form-control" name="levels" required min="1886" max="9999">
+        <input type="number" class="form-control" name="levels" required min="1">
+        <label for="levels">Levels</label>
+      </div>
+     
+      <div class="form-floating mb-3">
+        <input type="url" class="form-control" name="imgUrl"  >
+        <label for="imgUrl">Picture!</label>
+      </div>
+     
+      <div class="form-floating mb-3">
+        <input type="number" class="form-control" name="year" required  max="9999">
         <label for="year">Year</label>
       </div>
-
-      <div class="form-floating mb-3">
-        <input type="url" class="form-control" name="imgUrl" required >
-        <label for="price">Picture!</label>
-      </div>
-
-      <div class="form-floating mb-3">
-        <input type="number" class="form-control" name="year" required min="1886" max="9999">
-        <label for="year">Year</label>
-      </div>
-
-    <div class="form-floating mb-3">
+     
+     <div class="form-floating mb-3">
         <input type="number" class="form-control" name="price" required min="0" >
-        <label for="year">Price</label>
+        <label for="price">Price</label>
       </div>
-
-
-      <div class="d-flex my-4 gap-5 align-items-center">
-        <button class="btn" type="reset">Cancel</button>
-        <button class="btn btn-primary" type="submit">Submit</button>
-      </div>
-
+     
       <div class="form-floating">
         <textarea class="form-control" placeholder="Describe your Listing" name="description"></textarea>
         <label for="description">Description</label>
       </div>
-
-    </form>
+     
+      <div class="d-flex my-4 gap-5 align-items-center">
+        <button class="btn" type="reset">Cancel</button>
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+     
+     
+     </form>
       `
     }
    

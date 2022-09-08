@@ -64,6 +64,7 @@ function drayJobsForm(){
 
   `
   setHTML('listingform',template)
+  document.getElementById('formButton').innerText= '👺 Add Job listing'
 }
 export class JobsController {
   constructor() {
