@@ -8,6 +8,7 @@ function drawHouses() {
   let template = '';
   appState.houses.forEach((house) => (template += house.HouseTemplate));
   setHTML('listings', template);
+  drawHouseForm()
 }
 
 function drawHouseForm(){
@@ -60,16 +61,17 @@ function drawHouseForm(){
 </form>
  `
   setHTML('listingform', template)
+  document.getElementById('formButton').innerText= 'Add House'
 }
 
 export class HousesController {
   constructor() {
-    // appState.on('houses', drawHouses);
+    appState.on('houses', drawHouses);
   }
 
   showHouses() {
     drawHouses();
-    console.log(appState.houses);
+   
   }
   showForm(){
     drawHouseForm()
@@ -81,7 +83,7 @@ export class HousesController {
       const form = window.event.target
       let formData = getFormData(form)
  housesService.addHouse(formData)
-console.log('hi from house controller', formData);
+
 form.reset()
     } catch (error) {
       console.error('addHouse',error)

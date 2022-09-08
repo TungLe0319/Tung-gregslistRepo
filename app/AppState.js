@@ -14,7 +14,33 @@ class AppState extends EventEmitter {
 
   // -------------------------------------------
   /** @type {import('./Models/House').House[]} */
- houses = [
+ houses = loadState('houses', House)
+
+  /** @type {import('./Models/Job').Job[]} */
+jobs= loadState('jobs', Job)
+
+
+  // houses = loadState('houses', House)
+}
+
+export const appState = new Proxy(new AppState(), {
+  get(target, prop) {
+    isValidProp(target, prop);
+    return target[prop];
+  },
+  set(target, prop, value) {
+    isValidProp(target, prop);
+    target[prop] = value;
+    target.emit(prop, value);
+    return true;
+  },
+});
+
+
+
+
+/**
+ * [
     new House(
       4,
       4,
@@ -53,23 +79,4 @@ class AppState extends EventEmitter {
     ),
 
   ];
-
-  /** @type {import('./Models/Job').Job[]} */
-jobs = [new Job('https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.doityourselfrv.com%2Fwp-content%2Fuploads%2F2015%2F02%2F30-foot-long-tiny-house.jpg&f=1&nofb=1','codeworks','developer',40,50,'SUPER FUN!')]
-
-
-  // houses = loadState('houses', House)
-}
-
-export const appState = new Proxy(new AppState(), {
-  get(target, prop) {
-    isValidProp(target, prop);
-    return target[prop];
-  },
-  set(target, prop, value) {
-    isValidProp(target, prop);
-    target[prop] = value;
-    target.emit(prop, value);
-    return true;
-  },
-});
+ */

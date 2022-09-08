@@ -1,12 +1,20 @@
+import { generateId } from "../Utils/generateId.js"
+
 export class House{
-  constructor(bedrooms,bathrooms,levels,imgUrl,year,price,description){
-    this.bedrooms=bedrooms
-    this.bathrooms=bathrooms
-    this.level=levels
-    this.imgUrl=imgUrl
-    this.year=year
-    this.price=price
-    this.description=description
+    /**
+   * The data needed to make a house
+   * @param {{bedrooms: number, bathrooms: number, levels: number, imgUrl: string, year: number, price: number, id?:string}} data
+   */
+  constructor(data){
+    this.id=data.id||generateId()
+    this.bedrooms=data.bedrooms
+    this.bathrooms=data.bathrooms
+    this.level=data.levels
+    this.imgUrl=data.imgUrl
+    this.year=data.year
+    this.price=data.price
+    this.description=data.description
+
   }
 
 

@@ -5,8 +5,8 @@ import { saveState } from "../Utils/Store.js";
 export class HousesService{
   addHouse(formData){
     let house = new House(formData)
- appState.houses = [house]
-    console.log('hi from houseservice', house);
+ appState.houses = [house, ...appState.houses]
+   
   }
 }
 export const housesService = new HousesService()
