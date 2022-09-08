@@ -6,7 +6,7 @@ import { saveState } from "../Utils/Store.js";
   addHouse(formData){
     let house = new House(formData)
  appState.houses = [house, ...appState.houses]
-   
+   saveState('houses',appState.houses)
   }
 
 
